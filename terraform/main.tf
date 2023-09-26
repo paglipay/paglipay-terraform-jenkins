@@ -118,9 +118,9 @@ sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/
 sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
 
 sudo yum upgrade -y
-sudo amazon-linux-extras install java-openjdk11 -y
+sudo amazon-linux-extras install -y java-openjdk11
 
-sudo yum install jenkins -y
+sudo yum install -y jenkins
 sudo service jenkins start
 
 sudo yum install -y git python3
