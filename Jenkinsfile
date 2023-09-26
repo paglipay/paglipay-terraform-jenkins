@@ -17,7 +17,7 @@ pipeline {
                  script{
                         dir("terraform")
                         {
-                            git "https://github.com/paglipay/Terraform-Jenkins.git"
+                            git "https://github.com/paglipay/paglipay-terraform-jenkins.git"
                         }
                     }
                 }
