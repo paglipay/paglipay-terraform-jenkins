@@ -119,8 +119,7 @@ sudo amazon-linux-extras install -y java-openjdk11
 sudo yum install -y jenkins
 sudo service jenkins start
 
-sudo yum install -y git python3
-
+sudo yum install -y git python3 maven
 
 sudo amazon-linux-extras install -y nginx1
 sudo service nginx start
