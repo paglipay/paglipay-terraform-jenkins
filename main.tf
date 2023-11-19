@@ -129,6 +129,18 @@ sudo service nginx start
 sudo rm /usr/share/nginx/html/index.html
 echo '<html><head><title>Taco Team Server</title></head><body style=\"background-color:#1F778D\"><p style=\"text-align: center;\"><span style=\"color:#FFFFFF;\"><span style=\"font-size:28px;\">You did it! Have a &#127790;</span></span></p></body></html>' | sudo tee /usr/share/nginx/html/index.html
 
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+sudo yum -y install terraform
+
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+sudo yum install docker
+sudo usermod -a -G docker ec2-user
+sudo yum install python3-pip
+sudo pip3 install docker-compose
+sudo systemctl enable docker.service
+sudo systemctl start docker.service
 
 EOF
 
