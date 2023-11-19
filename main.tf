@@ -57,6 +57,11 @@ resource "aws_route_table_association" "app_subnet1" {
 
 # SECURITY GROUPS #
 
+#resource "aws_key_pair" "deployer" {
+#  key_name   = "aws_rsa"
+#  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDZV70iuiXao1WhB4xje1sPGzr1Edom5AfKU1IP+MaH1mXOWUcuuyY5aFfhBv6GLFBozN8oZrHad6lppLy1elyek9i/R8ZnIrZg1Ehhxtfqz5vXSsBP/fUp7GiQ2v8QvS7uMAtLGFDobRONX0zG7ZJAK/AxqUU38CMnanv8OePmFwEaf8himjWB20sVscwpBYHZ45DtdXjB8q7WTZMpW2hyC3yhrmkUjnyrwDJsAvyoJDkpzyk/4Rqv2uiAj1ALV7Pvm5h41i/Ru7D9UWT0cvGTc4OipLEcb+B9NlexHY8PJNRwK55qGF9wcGsJ0vXywclfIj1CYUtiHJLEKdjkDpMx paul@ub-desk-230"
+#}
+
 # Nginx security group 
 resource "aws_security_group" "nginx_sg" {
   name   = "nginx_sg"
