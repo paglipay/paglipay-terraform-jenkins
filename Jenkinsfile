@@ -12,7 +12,7 @@ pipeline {
     //     label 'ub-11'
     // }
     
-    // agent   any
+    agent   any
     stages {
         stage('Checkout') {
             steps {
