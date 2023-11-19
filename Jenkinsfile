@@ -8,11 +8,11 @@ pipeline {
     //     AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
     // }
 
-    // agent {
-    //     label 'ub-11'
-    // }
+    agent {
+        label 'ub-11'
+    }
     
-    agent   any
+    // agent   any
     stages {
         stage('Checkout') {
             steps {
