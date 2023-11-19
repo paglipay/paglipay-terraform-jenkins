@@ -5,12 +5,12 @@ pipeline {
         string(name: 'AWS_ACCESS_KEY_ID', description: 'AWS_ACCESS_KEY_ID 1?')
         string(name: 'AWS_SECRET_ACCESS_KEY', description: 'AWS_SECRET_ACCESS_KEY 2?')
     } 
-    environment {
-        // AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
-        // AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
-        AWS_ACCESS_KEY_ID     = params.AWS_ACCESS_KEY_ID
-        AWS_SECRET_ACCESS_KEY = params.AWS_SECRET_ACCESS_KEY
-    }
+    // environment {
+    //     // AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
+    //     // AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
+    //     AWS_ACCESS_KEY_ID     = params.AWS_ACCESS_KEY_ID
+    //     AWS_SECRET_ACCESS_KEY = params.AWS_SECRET_ACCESS_KEY
+    // }
 
     // agent {
     //     label 'ub-11'
