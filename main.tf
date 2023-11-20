@@ -101,6 +101,14 @@ resource "aws_security_group" "nginx_sg" {
 
   # HTTP access from anywhere
   ingress {
+    from_port   = 9001
+    to_port     = 9001
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  # HTTP access from anywhere
+  ingress {
     from_port   = 9443
     to_port     = 9443
     protocol    = "tcp"
