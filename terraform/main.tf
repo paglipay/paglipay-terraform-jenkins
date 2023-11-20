@@ -3,7 +3,7 @@
 ##################################################################################
 
 provider "aws" {
-  #  access_key = "ACCESS_KEY"
+  #  access_key = "AKIASWK2AEZTKDWMVD5D"
   #  secret_key = "SECRET_KEY"
   region = "us-east-1"
 }
@@ -56,6 +56,12 @@ resource "aws_route_table_association" "app_subnet1" {
 }
 
 # SECURITY GROUPS #
+
+#resource "aws_key_pair" "deployer" {
+#  key_name   = "aws_rsa"
+#  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDZV70iuiXao1WhB4xje1sPGzr1Edom5AfKU1IP+MaH1mXOWUcuuyY5aFfhBv6GLFBozN8oZrHad6lppLy1elyek9i/R8ZnIrZg1Ehhxtfqz5vXSsBP/fUp7GiQ2v8QvS7uMAtLGFDobRONX0zG7ZJAK/AxqUU38CMnanv8OePmFwEaf8himjWB20sVscwpBYHZ45DtdXjB8q7WTZMpW2hyC3yhrmkUjnyrwDJsAvyoJDkpzyk/4Rqv2uiAj1ALV7Pvm5h41i/Ru7D9UWT0cvGTc4OipLEcb+B9NlexHY8PJNRwK55qGF9wcGsJ0vXywclfIj1CYUtiHJLEKdjkDpMx paul@ub-desk-230"
+#}
+
 # Nginx security group 
 resource "aws_security_group" "nginx_sg" {
   name   = "nginx_sg"
@@ -115,13 +121,26 @@ sudo amazon-linux-extras install -y java-openjdk11
 sudo yum install -y jenkins
 sudo service jenkins start
 
-sudo yum install -y git python3 maven
+sudo yum install -y git python3
+
 
 sudo amazon-linux-extras install -y nginx1
 sudo service nginx start
 sudo rm /usr/share/nginx/html/index.html
 echo '<html><head><title>Taco Team Server</title></head><body style=\"background-color:#1F778D\"><p style=\"text-align: center;\"><span style=\"color:#FFFFFF;\"><span style=\"font-size:28px;\">You did it! Have a &#127790;</span></span></p></body></html>' | sudo tee /usr/share/nginx/html/index.html
 
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+sudo yum -y install terraform
+
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+sudo yum install -y docker
+sudo usermod -a -G docker ec2-user
+sudo yum install -y python3-pip
+sudo pip3 install -y docker-compose
+sudo systemctl enable docker.service
+sudo systemctl start docker.service
 
 EOF
 

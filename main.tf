@@ -136,11 +136,18 @@ sudo yum -y install terraform
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 sudo yum install -y docker
-sudo usermod -a -G docker ec2-user
 sudo yum install -y python3-pip
 sudo pip3 install -y docker-compose
 sudo systemctl enable docker.service
 sudo systemctl start docker.service
+
+sudo usermod -a -G docker ec2-user
+
+sudo docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
+sudo docker network create --driver overlay   portainer_agent_network
+sudo docker service create   --name portainer_agent   --network portainer_agent_network   -p 9001:9001/tcp   --mode global   --constraint 'node.platform.os == linux'   --mount type=bind,src=//var/run/docker.sock,dst=/var/run/docker.sock   --mount type=bind,src=//var/lib/docker/volumes,dst=/var/lib/docker/volumes   portainer/agent:2.19.2
+   
+sudo docker run -it -d -p 8081:8080 -v /var/run/docker.sock:/var/run/docker.sock dockersamples/visualizer
 
 EOF
 
