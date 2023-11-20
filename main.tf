@@ -135,10 +135,10 @@ sudo yum -y install terraform
 
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
-sudo yum install docker
+sudo yum install -y docker
 sudo usermod -a -G docker ec2-user
-sudo yum install python3-pip
-sudo pip3 install docker-compose
+sudo yum install -y python3-pip
+sudo pip3 install -y docker-compose
 sudo systemctl enable docker.service
 sudo systemctl start docker.service
 
