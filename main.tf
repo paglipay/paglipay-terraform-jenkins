@@ -189,6 +189,8 @@ sudo docker service create   --name portainer_agent   --network portainer_agent_
    
 sudo docker run -it -d -p 8081:8080 -v /var/run/docker.sock:/var/run/docker.sock dockersamples/visualizer
 
+sudo amazon-linux-extras install -y ansible2
+
 EOF
 
 }
