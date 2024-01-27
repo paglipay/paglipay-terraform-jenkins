@@ -63,8 +63,8 @@ resource "aws_route_table_association" "app_subnet1" {
 #}
 
 # Nginx security group 
-resource "aws_security_group" "nginx_sg" {
-  name   = "nginx_sg"
+resource "aws_security_group" "jenk_sg" {
+  name   = "jenk_sg"
   vpc_id = aws_vpc.app.id
 
   # HTTP access from anywhere
@@ -145,7 +145,7 @@ resource "aws_instance" "nginx1" {
   ami                    = nonsensitive(data.aws_ssm_parameter.amzn2_linux.value)
   instance_type          = "t2.micro"
   subnet_id              = aws_subnet.public_subnet1.id
-  vpc_security_group_ids = [aws_security_group.nginx_sg.id]
+  vpc_security_group_ids = [aws_security_group.jenk_sg.id]
 
   user_data = <<EOF
 #! /bin/bash
